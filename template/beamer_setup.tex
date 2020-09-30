@@ -1,0 +1,48 @@
+% Ordering matters below, if not, you get small bullets (no altbullet)
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[expert,altbullet]{lucidabr}
+\usepackage[english]{babel}
+\usepackage{xspace}
+\usepackage{pdfpages}
+% ----------------------------------------------------------------------
+\definecolor{maroon}{rgb}{0.4824 0.0667 0.0745}
+\definecolor{mAlert}{rgb}{0.4824 0.0667 0.0745}
+
+\definecolor{maroon2}{rgb}{0.7824 0.0667 0.0667}
+\definecolor{darkgreen}{rgb}{0 0.5 0}
+% ----------------------------------------------------------------------
+% ----------------------------------------------------------------------
+\def\tstrut{\vrule height 2.5ex depth 1.2ex width 0pt}
+\def\tstruta{\vrule height 0ex depth 1.2ex width 0pt}
+
+\renewcommand{\arraystretch}{1.00}
+
+\newcommand{\wn}{cm\ensuremath{^{-1}}\xspace}
+\newcommand{\um}{\ensuremath{\mu m}\xspace}
+\newcommand{\mb}{mbar\xspace}
+\newcommand{\cd}{CO\ensuremath{_2}\xspace}
+\newcommand{\water}{H\ensuremath{_2}O\xspace}
+\newcommand{\methane}{CH\ensuremath{_4}\xspace}
+\newcommand{\nitrogen}{N\ensuremath{_2}\xspace}
+\newcommand{\amm}{NH\ensuremath{_3}\xspace}
+\newcommand{\nitrous}{N\ensuremath{_2}O\xspace}
+\newcommand{\oxygen}{O\ensuremath{_2}\xspace}
+\newcommand{\ozone}{O\ensuremath{_3}\xspace}
+\newcommand{\mydeg}{\mbox{$^\circ$}}
+\newcommand{\ppm}{\mathrm{ppm}\xspace}
+% ----------------------------------------------------------------------
+\definecolor{beamer@blendedblue}{rgb}{0.1797,0.2422,0.3359} % use structure theme to change
+\setbeamercolor{structure}{fg=beamer@blendedblue}
+\beamertemplateshadingbackground{beamer@blendedblue!10}{gray!10}
+
+\setbeamercolor{framesubtitle}{fg=yellow!85!black}
+
+\tolerance=1000
+\usetheme{metropolis}
+\setbeamercolor{progress bar}{fg=maroon}
+\setbeamercolor{alert}{fg=maroon}
+
+\renewcommand{\UrlFont}{\small\tt}
+\renewcommand*{\UrlFont}{\footnotesize}
+

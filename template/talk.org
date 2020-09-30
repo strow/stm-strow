@@ -1,0 +1,181 @@
+#+startup: beamer
+#+Options: toc:nil H:1
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: \large AIRS Cloud Fraction Trends from a PDF-based Approach Compared to PATMOS
+#+BEAMER_HEADER: \subtitle{\footnotesize{AIRS Virtual Science Team Meeting}}
+#+BEAMER_HEADER: \date{\vspace{0.1in}\footnotesize{May 12, 2019 \vfill}}
+#+BEAMER_HEADER: \author{L. Larrabee Strow\inst{1,2}, Andy Tangborn \inst{2}, and Howard Motteler\inst{2} }
+#+BEAMER_HEADER: \institute[UMBC]{\inst{1} UMBC Physics Dept. \and \inst{2}UMBC JCET} 
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+
+* No graphics, one block
+
+** Patmosx
+   - Heidinger A. et. al., The Pathfinder Atmospheres–Extended AVHRR Climate Dataset, V 95  BAMS, 2014
+   - Starts in 1983
+   - AVHRR based, very high spatial resolution
+   - Many cloud products, not just cloud fraction
+   - Fairly heavily used, long-term NOAA support
+
+Patmosx has been used for climate model studies, more below.   \\
+
+Validation versus AIRS L3 and/or MODIS could follow...
+
+* One graph
+
+Grid point in Atlantic Ocean south of northern Africa: at (-5,0)\deg lat/lon, (1.8,3.0)\deg
+
+#+ATTR_LATEX: :width 0.8\linewidth
+[[./Figs/airs_pdf_bin_0long_m5deglat_windchan.png]]
+
+* 4 graphs, bottom two have block titles
+\vspace{-0.6in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_mean_cloud_frac.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_mean_cloud_frac_true5K_threshold.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.2in}
+
+** \footnotesize Threshold = 5K
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+
+\vspace{-0.1in}
+
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_minus_airs_mean_cloud_frac_true5Kcloud.png]]
+
+** \footnotesize Threshold = 10K
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+
+\vspace{-0.1in}
+
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_minus_airs_mean_cloud_frac.png]]
+
+* One graph, two column blocks below
+
+\vspace{-0.15in}
+
+#+ATTR_LATEX: :width 0.55\linewidth
+[[./Figs/scatter_cloud_airs_patmos_pm60lat_threshold5p5.pdf]]
+
+\vspace{-0.3in}
+
+** Cloud Fraction
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: block
+:END:
+#+LaTeX: \begin{footnotesize}
+- Correlation Coefficient:  0.98
+- Mean (Patmos - AIRS):  0.37% \pm 2.5% (std)
+- Mean (Patmos - AIRS): \pm60\deg lat= 0.03% \pm 3% (std)
+#+LaTeX: \end{footnotesize}
+** Cloud Trends 
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: block
+:END:
+#+LaTeX: \begin{footnotesize}
+- Mean (Patmos - AIRS): -0.05 \pm0.12 %/yr (std)
+- Mean (Patmos - AIRS): \pm60\deg lat = = -0.066 \pm0.015 %/yr (std)
+#+LaTeX: \end{footnotesize}
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.05in}
+\footnotesize Estimated AIRS trend uncertainty due to SST trend errors:  ~0.06%/yr 2\sigma
+
+* Two graphs side-by-side
+- Many similarities, but note Equatorial Atlantic
+- Note SAO issue for Patmosx
+- Note scale is cloud fraction in %
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_cf_rate_smooth.png]]
+
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_cf_rate_smooth.png]]
+
+* 2x2 (4 graphs), no headers, use this a lot
+\vspace{-0.5in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_percent_trend_unc.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_percent_trend_unc.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.45in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_percent_trend_unc_czoom.png]]
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_percent_trend_unc_czoom.png]]
+
+
