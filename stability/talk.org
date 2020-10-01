@@ -1,0 +1,389 @@
+#+startup: beamer
+#+Options: toc:nil H:1
+#+LaTeX_CLASS_OPTIONS: [10pt,t]
+#+TITLE: \large AIRS/CrIS Radiometricc Stability Improvements Needed for the CHIRP Climate Data Record
+#+BEAMER_HEADER: \subtitle{\footnotesize{AIRS Virtual Science Team Meeting}}
+#+BEAMER_HEADER: \date{\vspace{0.1in}\footnotesize{May 12, 2019 \vfill}}
+#+BEAMER_HEADER: \author{L. Larrabee Strow\inst{1,2}, Andy Tangborn \inst{2}, and Howard Motteler\inst{2} }
+#+BEAMER_HEADER: \institute[UMBC]{\inst{1} UMBC Physics Dept. \and \inst{2}UMBC JCET} 
+#+BEAMER_HEADER: \input beamer_setup
+#+BEAMER_HEADER: \usetheme{metropolis}
+#+BEAMER_HEADER: \metroset{titleformat title=allcaps}
+#+BEAMER_HEADER: \renewcommand{\UrlFont}{\small\tt}
+#+BEAMER_HEADER: \renewcommand*{\UrlFont}{\footnotesize}
+#+BEAMER_HEADER: \tolerance=1000
+#  +BEAMER_HEADER: \setbeamertemplate{frame footer}{\scriptsize UMBC/ASL} 
+
+
+* Introduction
+
+Something
+
+* AIRS Radiometric Drifts via DCC's
+\vspace{-0.4in}
+** \scriptsize Mean DCC Spectrum
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.95\linewidth
+[[./Figs/Pdf/mean_dcc_spectrum.pdf]]
+
+** \scriptsize 15-Year DCC Trend
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.95\linewidth
+[[./Figs/Pdf/dcc_trend.pdf]]
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.25in}
+** \scriptsize Time Dependence of Trends
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.8\linewidth
+[[./Figs/Pdf/dcc_drift_vs_time_1231_2616.pdf]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.58
+:BEAMER_env: block
+:END:
+\vspace{-0.15in}
+\scriptsize
+- DCC's defined here by BT(960 \wn) < 215K
+- DCC's often used for calibration since extremely stable
+- Trends are NOT seen in IASI shortwave 
+- A/B trends (longwave) and AIRS frequency shifts have similar time-dependencies!
+- Shortwave sensitive to space view (SV) drifts.
+- Suspect focal plane/optics shifts that change location of SV's
+
+* Using DCC Emission to Determine Calibration Drifts
+  :PROPERTIES:
+  :BEAMER_opt: shrink=20
+  :END:
+- Simplified to ignore non-linearity and polarization
+- Written differently than in ATBD, show Space View (SV) explicitely
+
+\vspace{-0.2in}
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.3
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+\begin{equation}
+R = \frac{EV - SV}{OBC - SV} R_{\text OBC}
+\nonumber
+\end{equation}
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.9
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+- R is calibrated radiance
+- EV/SV/OBC are the earth/space/blackbody counts
+- R_{\text{OBC}} is the computed OBC (blackbody) radiance
+
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+** Sensitivity of R to SV
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+
+\vspace{0.1in}
+\begin{equation}
+\frac{\partial R}{\partial SV} = \frac{1}{OBC - SV} (R - R_{\text{OBC}})
+\nonumber
+\end{equation}
+
+** Solve for SV
+:PROPERTIES:
+:BEAMER_col: 0.55 
+:BEAMER_env: block
+:END:
+
+\vspace{0.1in}
+\begin{equation}
+\delta SV = \frac{OBC - SV}{R - R_{\text{OBC}}} \delta R
+\nonumber
+\end{equation}
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+
+
+
+** Approach
+
+- Use DCC trends for \delta R, solve for \delta SV (\equiv SV drift/year)
+- Compute \delta R trends for various scene types (R = DCC, clear, etc.) 
+- Convert to BT trends
+- Ignore regions where emission exists above DCC's, ie stratospheric emission that could be varying in time
+- Lien #1: used a single, randomly selected AIRS L1a scene to estimate (OBC - SV)
+- Lien #2: DCC drift maximum near equator, drops 30% by \pm 30\deg latitude (orbit phase or T. Pagano's FOV idea?)
+
+* SV Trend Results
+\vspace{-0.4in}
+
+** \scriptsize Sample Set of AIRS L1a Counts
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.95\linewidth
+[[./Figs/Pdf/airs_counts_example.pdf]]
+
+** \scriptsize \delta BT for 1% SV drift for BT = DCC, 300K
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.93\linewidth
+[[./Figs/Pdf/dbt_for_minus1pc_dsv_for_dcc_spectrum_and_300k.pdf]]
+
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.25in}
+** \scriptsize \delta SV BT Trend for SV = 265K
+:PROPERTIES:
+:BEAMER_col: 0.5
+:BEAMER_env: block
+:END:
+\vspace{-0.12in}
+#+ATTR_LATEX: :width 0.8\linewidth
+[[./Figs/Pdf/dbt_sv_if_sbt_is_265k.pdf]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+\vspace{-0.15in}
+\scriptsize
+- AIRS scene produces window BT ~275K
+- Note high A/B variability in SV counts!
+- Setting SV = 265K is just to illustrate magitude of SV drift
+- SV drifts /small/ but DCC's allow quantification
+- Key conclusion: this approach predicts scene dependence
+
+* Do the DCC SV Drifts Predict All-Sky Trends?
+
+\vspace{-0.1in}
+#+ATTR_LATEX: :width 0.65\linewidth
+[[./Figs/Pdf/random_trend_with_drift_for_that_bt_from_dcc_drifts.pdf]]
+
+\vspace{-0.1in}
+
+\scriptsize
+- Blue is 17-year all-sky AIRS BT trend (black line denotes 1231 \wn channel)
+  - \scriptsize \cd, \methane, \nitrous, and \ozone exhibit greenhouse effect
+  - \scriptsize \water also shows greenhouse effect
+- Red are shifts predicted by SV drift.  Nicely reproduces shortwave "false" extra warming
+- Nominal agreement for detector side A/B ringing in window regions
+- LIEN: SV trend likely orbit phase dependent!
+
+
+
+
+* COMMENT No graphics, one block
+
+** Patmosx
+   - Heidinger A. et. al., The Pathfinder Atmospheres–Extended AVHRR Climate Dataset, V 95  BAMS, 2014
+   - Starts in 1983
+   - AVHRR based, very high spatial resolution
+   - Many cloud products, not just cloud fraction
+   - Fairly heavily used, long-term NOAA support
+
+Patmosx has been used for climate model studies, more below.   \\
+
+Validation versus AIRS L3 and/or MODIS could follow...
+
+* COMMENT One graph
+
+Grid point in Atlantic Ocean south of northern Africa: at (-5,0)\deg lat/lon, (1.8,3.0)\deg
+
+#+ATTR_LATEX: :width 0.8\linewidth
+[[./Figs/airs_pdf_bin_0long_m5deglat_windchan.png]]
+
+* COMMENT 4 graphs, bottom two have block titles
+\vspace{-0.6in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_mean_cloud_frac.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_mean_cloud_frac_true5K_threshold.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.2in}
+
+** \footnotesize Threshold = 5K
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+
+\vspace{-0.1in}
+
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_minus_airs_mean_cloud_frac_true5Kcloud.png]]
+
+** \footnotesize Threshold = 10K
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+
+\vspace{-0.1in}
+
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_minus_airs_mean_cloud_frac.png]]
+
+* COMMENT One graph, two column blocks below
+
+\vspace{-0.15in}
+
+#+ATTR_LATEX: :width 0.55\linewidth
+[[./Figs/scatter_cloud_airs_patmos_pm60lat_threshold5p5.pdf]]
+
+\vspace{-0.3in}
+
+** Cloud Fraction
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: block
+:END:
+#+LaTeX: \begin{footnotesize}
+- Correlation Coefficient:  0.98
+- Mean (Patmos - AIRS):  0.37% \pm 2.5% (std)
+- Mean (Patmos - AIRS): \pm60\deg lat= 0.03% \pm 3% (std)
+#+LaTeX: \end{footnotesize}
+** Cloud Trends 
+:PROPERTIES:
+:BEAMER_col: 0.6
+:BEAMER_env: block
+:END:
+#+LaTeX: \begin{footnotesize}
+- Mean (Patmos - AIRS): -0.05 \pm0.12 %/yr (std)
+- Mean (Patmos - AIRS): \pm60\deg lat = = -0.066 \pm0.015 %/yr (std)
+#+LaTeX: \end{footnotesize}
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.05in}
+\footnotesize Estimated AIRS trend uncertainty due to SST trend errors:  ~0.06%/yr 2\sigma
+
+* COMMENT Two graphs side-by-side
+- Many similarities, but note Equatorial Atlantic
+- Note SAO issue for Patmosx
+- Note scale is cloud fraction in %
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_cf_rate_smooth.png]]
+
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_cf_rate_smooth.png]]
+
+* COMMENT 2x2 (4 graphs), no headers, use this a lot
+\vspace{-0.5in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_percent_trend_unc.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_percent_trend_unc.png]]
+
+** 
+:PROPERTIES:
+:BEAMER_env: ignoreheading
+:END:
+
+\vspace{-0.45in}
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/airs_percent_trend_unc_czoom.png]]
+** 
+:PROPERTIES:
+:BEAMER_col: 0.55
+:BEAMER_env: block
+:END:
+#+ATTR_LATEX: :width \linewidth
+[[./Figs/patmos_percent_trend_unc_czoom.png]]
+
+
+
+
+
+
+  :PROPERTIES:
+  :BEAMER_opt: shrink=15
+  :END:
